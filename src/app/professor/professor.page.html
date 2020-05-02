@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" color="light" routerLink="/home">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Cadastro do professor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Nome completo</ion-label>
+            <ion-input type="text" placeholder="Maria  Matos "></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">CPF</ion-label>
+            <ion-input type="number" placeholder="000.000.000-00"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Data de Nascimento</ion-label>
+            <ion-input type="text" placeholder="00/00/0000"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Telefone fixo</ion-label>
+            <ion-input type="number" placeholder="(00) 0000-0000"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">RG</ion-label>
+            <ion-input type="number" placeholder="0000000"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Telefone</ion-label>
+            <ion-input type="number" placeholder="(00) 0000-0000"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+
+          <ion-item>
+            <ion-label position="floating">Discipinas</ion-label>
+            <ion-select>
+              <ion-select-option value="java">Java</ion-select-option>
+              <ion-select-option value="matematica">Matemática</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Turmas</ion-label>
+            <ion-select>
+              <ion-select-option value="si">SI</ion-select-option>
+              <ion-select-option value="tads">TADS</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+
+          <ion-item>
+            <ion-label position="floating">Dias</ion-label>
+            <ion-select>
+              <ion-select-option value="segunda">Segunda</ion-select-option>
+              <ion-select-option value="quarta">Quarta</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Nome do Coordenador</ion-label>
+            <ion-input type="text" placeholder="Carlos Souza"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button type="submit" expand="full">Enviar</ion-button>
+    </ion-grid>
+  </form>
+</ion-content>

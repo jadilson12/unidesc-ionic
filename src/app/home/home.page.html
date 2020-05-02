@@ -1,20 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Unidesc - APP
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col routerLink="/aluno">
+        <ion-card>
+          <img width="200" height="200" src="../../assets/img/student.png" />
+          <ion-card-header>
+            <ion-card-subtitle>Aluno</ion-card-subtitle>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col routerLink="/professor">
+        <ion-card>
+          <img width="200" height="200" src="../../assets/img/teacher.jpg" />
+          <ion-card-header>
+            <ion-card-subtitle>Professor</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row routerLink="/turma">
+      <ion-col size="6">
+        <ion-card>
+          <img width="200" height="200" src="../../assets/img/classroom.png" />
+          <ion-card-header>
+            <ion-card-subtitle>Turma</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
