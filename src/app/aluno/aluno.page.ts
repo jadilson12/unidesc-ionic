@@ -1,17 +1,29 @@
+import { Aluno } from './../models/aluno.model';
+import { AlunoService } from './../services/aluno.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aluno',
   templateUrl: './aluno.page.html',
-  styleUrls: ['./aluno.page.scss']
+  styleUrls: ['./aluno.page.scss'],
 })
 export class AlunoPage implements OnInit {
-  constructor(private route: Router) {}
+  alunos: Aluno[] = [];
 
-  ngOnInit() {}
+  constructor(private readonly alunoService: AlunoService) {}
 
-  rota(): void {
-    //this.route.navigate;
+  ngOnInit() {
+    this.list();
+  }
+
+  list(): void {
+    this.alunoService.list().subscribe((res) => {
+      this.alunos = res;
+      console.log(this.alunos);
+    });
+  }
+
+  delete(): void {
+    //
   }
 }
