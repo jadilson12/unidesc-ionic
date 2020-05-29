@@ -1,3 +1,4 @@
+import { ProfessorService } from './../services/professor.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,12 +10,8 @@ import { ProfessorPageRoutingModule } from './professor-routing.module';
 import { ProfessorPage } from './professor.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ProfessorPageRoutingModule
-  ],
-  declarations: [ProfessorPage]
+  imports: [CommonModule, FormsModule, IonicModule, ProfessorPageRoutingModule],
+  declarations: [ProfessorPage],
+  providers: [ProfessorService],
 })
 export class ProfessorPageModule {}

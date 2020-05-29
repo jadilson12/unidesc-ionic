@@ -1,3 +1,4 @@
+import { TurmaService } from './../services/turma.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,12 +10,8 @@ import { TurmaPageRoutingModule } from './turma-routing.module';
 import { TurmaPage } from './turma.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    TurmaPageRoutingModule
-  ],
-  declarations: [TurmaPage]
+  imports: [CommonModule, FormsModule, IonicModule, TurmaPageRoutingModule],
+  declarations: [TurmaPage],
+  providers: [TurmaService],
 })
 export class TurmaPageModule {}

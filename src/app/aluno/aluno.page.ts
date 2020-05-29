@@ -19,11 +19,10 @@ export class AlunoPage implements OnInit {
   list(): void {
     this.alunoService.list().subscribe((res) => {
       this.alunos = res;
-      console.log(this.alunos);
     });
   }
 
-  delete(): void {
+  delete(aluno: Aluno): void {
     //
   }
 }

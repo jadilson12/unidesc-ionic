@@ -17,7 +17,7 @@
     </ion-list-header>
 
     <ion-item-sliding *ngFor="let aluno of alunos">
-      <ion-item-options side="start">
+      <ion-item-options side="start" (click)="delete(aluno)">
         <ion-item-option color="danger" expandable>
           <ion-icon name="trash"></ion-icon>
         </ion-item-option>

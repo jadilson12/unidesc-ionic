@@ -1,3 +1,4 @@
+import { AlunoCriarComponent } from './aluno-criar/aluno-criar.component';
 import { AlunoService } from './../services/aluno.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,7 @@ import { AlunoPage } from './aluno.page';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AlunoPage],
+  declarations: [AlunoPage, AlunoCriarComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,14 +1,15 @@
-import { httpOptions } from './../config/httpOption';
-import { Aluno } from './../models/aluno.model';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { httpOptions } from '../config/httpOption';
+import { Turma } from '../models/turma.model';
+
 @Injectable({
   providedIn: 'root',
 })
-export class AlunoService {
-  url = `${environment.api_jadilson}/alunos`;
+export class TurmaService {
+  url = `${environment.api_jadilson}/turmas`;
 
   constructor(private readonly http: HttpClient) {}
 
@@ -16,12 +17,12 @@ export class AlunoService {
     return this.http.get(this.url);
   }
 
-  create(aluno: Aluno): Observable<any> {
-    return this.http.post(this.url, aluno, httpOptions);
+  create(turma: Turma): Observable<any> {
+    return this.http.post(this.url, turma, httpOptions);
   }
 
-  update(aluno: Aluno): Observable<Aluno> | any {
-    return this.http.put(`${this.url}`, aluno, httpOptions);
+  update(turma: Turma): Observable<Turma> | any {
+    return this.http.put(`${this.url}`, turma, httpOptions);
   }
 
   delete(id: number): Observable<{}> {
