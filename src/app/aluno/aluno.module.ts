@@ -1,8 +1,9 @@
+import { RouterModule } from '@angular/router';
 import { AlunoCriarComponent } from './aluno-criar/aluno-criar.component';
 import { AlunoService } from './../services/aluno.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -19,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule,
     AlunoPageRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [AlunoService],
 })

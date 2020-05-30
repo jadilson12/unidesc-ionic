@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'criar',
     component: AlunoCriarComponent,
   },
+  {
+    path: 'editar/:id',
+    component: AlunoCriarComponent,
+  },
 ];
 
 @NgModule({

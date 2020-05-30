@@ -1,17 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Cadastrar aluno</ion-title>
+    <ion-button slot="start" routerLink="/aluno" fill="clear">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>{{ isEdit ? "Atualizar" : "Cadastrar"}} aluno</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form>
+  <ion-progress-bar
+    type="indeterminate"
+    *ngIf="isEdit && !idAluno"
+  ></ion-progress-bar>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <ion-grid>
       <ion-row>
         <ion-col>
           <ion-item>
             <ion-label position="floating">Nome</ion-label>
-            <ion-input type="text" placeholder="Digite o nome"></ion-input>
+            <ion-input
+              type="text"
+              formControlName="nome"
+              placeholder="Digite o nome"
+            ></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -21,6 +33,7 @@
             <ion-label position="floating">Matricula</ion-label>
             <ion-input
               type="text"
+              formControlName="matricula"
               placeholder="Numero da Matricula"
             ></ion-input>
           </ion-item>
@@ -30,12 +43,21 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating">Semestre</ion-label>
-            <ion-input type="tu" placeholder="Número da Semestre"></ion-input>
+            <ion-input
+              type="number"
+              formControlName="semestre"
+              placeholder="Número da Semestre"
+            ></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
-      <ion-button type="submit" color="primary" expand="full"
-        >Enviar</ion-button
+      <ion-button
+        type="submit"
+        color="primary"
+        expand="full"
+        [disabled]="form.invalid"
+      >
+        {{ isEdit ? "Salvar" : "Enviar"}}</ion-button
       >
     </ion-grid>
   </form>
