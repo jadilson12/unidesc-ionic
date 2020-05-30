@@ -1,3 +1,4 @@
+import { ToastService } from './../services/toast.service';
 import { ProfessorFormComponent } from './professor-form/professor-form.component';
 import { ProfessorService } from './../services/professor.service';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,6 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
   ],
-  providers: [ProfessorService],
+  providers: [ProfessorService, ToastService],
 })
 export class ProfessorPageModule {}

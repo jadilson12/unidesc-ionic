@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfessorService } from 'src/app/services/professor.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Professor } from 'src/app/models/professor.model';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-professor-form',
@@ -17,7 +18,8 @@ export class ProfessorFormComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private professorService: ProfessorService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -49,9 +51,10 @@ export class ProfessorFormComponent implements OnInit {
       () => {
         this.router.navigate(['/professor']);
         this.professorService.emitChanges();
+        this.toastService.success('Criado com sucesso');
       },
-      (error) => {
-        console.log(error);
+      () => {
+        this.toastService.error('Houve um erro!');
       }
     );
   }
@@ -73,9 +76,10 @@ export class ProfessorFormComponent implements OnInit {
       () => {
         this.router.navigate(['/professor']);
         this.professorService.emitChanges();
+        this.toastService.success('Atualizado com sucesso');
       },
-      (error) => {
-        // console.log(error);
+      () => {
+        this.toastService.error('Houve um erro!');
       }
     );
   }

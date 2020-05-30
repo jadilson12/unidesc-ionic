@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Professor } from '../models/professor.model';
 import { ProfessorService } from '../services/professor.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-professor',
@@ -13,7 +14,8 @@ export class ProfessorPage implements OnInit {
   professores$: Observable<Professor>;
   constructor(
     private readonly professorService: ProfessorService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -28,9 +30,15 @@ export class ProfessorPage implements OnInit {
   }
 
   delete(professor: Professor): void {
-    this.professorService.delete(professor.id).subscribe((resp) => {
-      this.list();
-    });
+    this.professorService.delete(professor.id).subscribe(
+      () => {
+        this.list();
+        this.toastService.success('Excluido com sucesso');
+      },
+      () => {
+        this.toastService.error('Houve um erro!');
+      }
+    );
   }
 
   edit(id: number): void {
