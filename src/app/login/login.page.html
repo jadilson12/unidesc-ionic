@@ -1,19 +1,31 @@
 <ion-content class="ion-padding">
   <h1 class="ion-text-center">
-    <img src="../../assets/icon/unidesc.webp">
+    <img src="../../assets/icon/unidesc.webp" />
   </h1>
 
   <form>
     <ion-item>
       <ion-icon name="mail" slot="start" color="primary"></ion-icon>
-      <ion-input type="text" placeholder="Digite seu email"></ion-input>
+      <ion-input
+        type="text"
+        placeholder="Digite seu email"
+        value="demo"
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-icon name="lock-open-outline" slot="start" color="primary"></ion-icon>
-      <ion-input type="password" placeholder="Digite sua senha"></ion-input>
+      <ion-icon
+        name="lock-open-outline"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="password"
+        placeholder="Digite sua senha"
+        value="demo"
+      ></ion-input>
     </ion-item>
 
-    <ion-button expand="block" color="primary" shape="round">
+    <ion-button expand="block" color="primary" shape="round" routerLink="/home">
       Login
     </ion-button>
 

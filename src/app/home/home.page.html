@@ -3,7 +3,7 @@
     <ion-title>
       Dashboard
     </ion-title>
-    <ion-button slot="end" color="dark">
+    <ion-button slot="end" color="dark" routerLink="/login">
       <ion-icon slot="start" name="log-out-outline" color="light"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -28,18 +28,9 @@
           </ion-card-header>
         </ion-card>
       </ion-col>
-
     </ion-row>
 
     <ion-row>
-      <ion-col>
-        <ion-card class="ion-text-center">
-          <img width="128" height="128" src="../../assets/img/admin.png" />
-          <ion-card-header class="ion-text-center">
-            <ion-card-title>Admin</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
       <ion-col routerLink="/turma">
         <ion-card class="ion-text-center">
           <img width="128" height="128" src="../../assets/img/classroom.png" />

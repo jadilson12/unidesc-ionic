@@ -2,34 +2,38 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
+  },
   {
     path: 'aluno',
-    loadChildren: () => import('./aluno/aluno.module').then( m => m.AlunoPageModule)
+    loadChildren: () =>
+      import('./aluno/aluno.module').then((m) => m.AlunoPageModule),
   },
   {
     path: 'turma',
-    loadChildren: () => import('./turma/turma.module').then( m => m.TurmaPageModule)
+    loadChildren: () =>
+      import('./turma/turma.module').then((m) => m.TurmaPageModule),
   },
   {
     path: 'professor',
-    loadChildren: () => import('./professor/professor.module').then( m => m.ProfessorPageModule)
+    loadChildren: () =>
+      import('./professor/professor.module').then((m) => m.ProfessorPageModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
