@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TurmaService } from 'src/app/services/turma.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Turma } from 'src/app/models/turma.model';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-turma-form',
@@ -17,7 +18,8 @@ export class TurmaFormComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private turmaService: TurmaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -47,9 +49,10 @@ export class TurmaFormComponent implements OnInit {
       () => {
         this.router.navigate(['/turma']);
         this.turmaService.emitChanges();
+        this.toastService.success('Criado com sucesso');
       },
-      (error) => {
-        console.log(error);
+      () => {
+        this.toastService.error('Houve um erro!');
       }
     );
   }
@@ -71,9 +74,10 @@ export class TurmaFormComponent implements OnInit {
       () => {
         this.router.navigate(['/turma']);
         this.turmaService.emitChanges();
+        this.toastService.success('Atualizado com sucesso');
       },
-      (error) => {
-        // console.log(error);
+      () => {
+        this.toastService.error('Houve um erro!');
       }
     );
   }

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Turma } from '../models/turma.model';
 import { TurmaService } from '../services/turma.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-turma',
@@ -13,7 +14,8 @@ export class TurmaPage implements OnInit {
   turmas$: Observable<Turma>;
   constructor(
     private readonly turmaService: TurmaService,
-    private router: Router
+    private readonly router: Router,
+    private readonly toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -28,9 +30,15 @@ export class TurmaPage implements OnInit {
   }
 
   delete(professor: Turma): void {
-    this.turmaService.delete(professor.id).subscribe(() => {
-      this.list();
-    });
+    this.turmaService.delete(professor.id).subscribe(
+      () => {
+        this.list();
+        this.toastService.success('Excluido com sucesso');
+      },
+      () => {
+        this.toastService.error('Houve um erro!');
+      }
+    );
   }
 
   edit(id: number): void {

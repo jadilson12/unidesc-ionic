@@ -1,3 +1,4 @@
+import { ToastService } from 'src/app/services/toast.service';
 import { TurmaFormComponent } from './turma-form/turma-form.component';
 import { TurmaService } from './../services/turma.service';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,6 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   declarations: [TurmaPage, TurmaFormComponent],
-  providers: [TurmaService],
+  providers: [TurmaService, ToastService],
 })
 export class TurmaPageModule {}
