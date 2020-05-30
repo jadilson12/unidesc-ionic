@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" routerLink="/turma" fill="clear">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>{{ isEdit ? "Atualizar" : "Cadastrar"}} turma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar
+    type="indeterminate"
+    *ngIf="isEdit && !idTurma"
+  ></ion-progress-bar>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Nome Lider</ion-label>
+            <ion-input
+              type="text"
+              formControlName="lider"
+              placeholder="Digite o nome"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input
+              type="mail"
+              formControlName="email"
+              placeholder="Digite o e-mail"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button
+        type="submit"
+        color="primary"
+        expand="full"
+        [disabled]="form.invalid"
+      >
+        {{ isEdit ? "Salvar" : "Enviar"}}</ion-button
+      >
+    </ion-grid>
+  </form>
+</ion-content>
