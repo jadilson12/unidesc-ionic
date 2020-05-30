@@ -1,3 +1,4 @@
+import { ToastService } from './../services/toast.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Aluno } from './../models/aluno.model';
@@ -13,7 +14,8 @@ export class AlunoPage implements OnInit, OnDestroy {
   alunos$: Observable<Aluno>;
   constructor(
     private readonly alunoService: AlunoService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -28,9 +30,15 @@ export class AlunoPage implements OnInit, OnDestroy {
   }
 
   delete(aluno: Aluno): void {
-    this.alunoService.delete(aluno.id).subscribe((resp) => {
-      this.list();
-    });
+    this.alunoService.delete(aluno.id).subscribe(
+      (resp) => {
+        this.list();
+        this.toastService.success('Excluido com sucesso');
+      },
+      () => {
+        this.toastService.error('Houve um erro!');
+      }
+    );
   }
 
   edit(id: number): void {

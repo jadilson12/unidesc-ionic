@@ -1,3 +1,4 @@
+import { ToastService } from './../../services/toast.service';
 import { Aluno } from './../../models/aluno.model';
 import { AlunoService } from './../../services/aluno.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,8 @@ export class AlunoCriarComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private alunoService: AlunoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -49,9 +51,10 @@ export class AlunoCriarComponent implements OnInit {
       () => {
         this.router.navigate(['/aluno']);
         this.alunoService.emitChanges();
+        this.toastService.success('Criado com sucesso');
       },
       (error) => {
-        console.log(error);
+        this.toastService.error('Houve um erro!');
       }
     );
   }
@@ -74,9 +77,10 @@ export class AlunoCriarComponent implements OnInit {
       () => {
         this.router.navigate(['/aluno']);
         this.alunoService.emitChanges();
+        this.toastService.success('Atualizado com sucesso');
       },
       (error) => {
-        // console.log(error);
+        this.toastService.error('Houve um erro!');
       }
     );
   }

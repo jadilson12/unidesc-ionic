@@ -1,3 +1,4 @@
+import { ToastService } from './../services/toast.service';
 import { RouterModule } from '@angular/router';
 import { AlunoCriarComponent } from './aluno-criar/aluno-criar.component';
 import { AlunoService } from './../services/aluno.service';
@@ -23,6 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     RouterModule,
   ],
-  providers: [AlunoService],
+  providers: [AlunoService, ToastService],
 })
 export class AlunoPageModule {}
