@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" routerLink="/professor" fill="clear">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>{{ isEdit ? "Atualizar" : "Cadastrar"}} professor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar
+    type="indeterminate"
+    *ngIf="isEdit && !idProfessor"
+  ></ion-progress-bar>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input
+              type="text"
+              formControlName="nome"
+              placeholder="Digite o nome"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Matricula</ion-label>
+            <ion-input
+              type="number"
+              formControlName="matricula"
+              placeholder="Numero da Matricula"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input
+              type="text"
+              formControlName="email"
+              placeholder="Número da Semestre"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Telefone</ion-label>
+            <ion-input
+              type="number"
+              formControlName="telefone"
+              placeholder="Número da Semestre"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button
+        type="submit"
+        color="primary"
+        expand="full"
+        [disabled]="form.invalid"
+      >
+        {{ isEdit ? "Salvar" : "Enviar"}}</ion-button
+      >
+    </ion-grid>
+  </form>
+</ion-content>
